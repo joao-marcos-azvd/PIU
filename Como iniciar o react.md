@@ -7,7 +7,7 @@ ___
 ___
     npm create vite@latest 
 ___
-    cd vite-project 
+    cd nome_diretório
 ___
     npm install 
 ___
