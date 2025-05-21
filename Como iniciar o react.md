@@ -1,5 +1,6 @@
 #  Comandos iniciais:
-* tem que entrar no terminal do cmd no visual studio 
+* tem que entrar no terminal do cmd no visual studio
+*Só faz tudo caso esteja criano o projeto, caso ele já esteja criado, faz só as últimas 2 linhas pra inicializar*
 ___
     node -v 
 ___
