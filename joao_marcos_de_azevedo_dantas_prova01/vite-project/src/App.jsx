@@ -5,12 +5,13 @@ import './App.css'
 import RenderizarCarros from './components/RenderizarCarros'
 
 function App() {
-  const [count, setCount] = useState(0)
+  //const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div>
       <RenderizarCarros/>
-    </>
+      <h1>hdxbwu\abd</h1>
+    </div>
   )
 }
 
