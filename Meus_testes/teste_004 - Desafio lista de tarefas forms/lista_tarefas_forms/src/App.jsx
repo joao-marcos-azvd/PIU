@@ -1,5 +1,5 @@
 import './App.css'
-import FormsTarefa from './components/FormsTarefa'
+import ListaDeTarefas from './components/ListaDeTarefas'
 
 function App() {
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <h1>Lista de tarefas</h1>
-      <FormsTarefa />
+      <ListaDeTarefas />
     </>
   )
 }
