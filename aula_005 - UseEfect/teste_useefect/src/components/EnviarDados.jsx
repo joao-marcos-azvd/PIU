@@ -1,42 +1,36 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
+export default function EnviarDados() {
+  const [count, setCount] = useState(0);
 
-export default function EnviarDados(){
+  useEffect(() => {
+    const enviarDados = async () => {
+      const nomeBiblioteca = "biblioteca01"; // nome que será enviado
 
-    let API = ""
+      try {
+        const response = await fetch(`http://127.0.0.1:8000/bibliotecas?nome=${nomeBiblioteca}`, {
+          method: "POST",
+        });
 
-    useEffect(() => {
-  const enviarDados = async () => {
-    const novoPost = {
-      id: 1,
-      title: "Conteúdo do novo post"
+        if (!response.ok) {
+          throw new Error("Erro ao enviar para a API");
+        }
+
+        console.log("Biblioteca criada com sucesso");
+      } catch (error) {
+        console.error("Erro ao enviar dados:", error);
+      }
     };
 
-    try {
-      const response = await fetch({API}, { //aqui deve ser inserido o endereço da API
-        method: 'POST', // método POST para envio de dados
-        headers: {
-          'Content-Type': 'application/json' // informa que os dados estão em JSON
-        },
-        body: JSON.stringify(novoPost) // converte o objeto JS em JSON
-      });
-
-      const data = await response.json();
-      console.log("Resposta da API:", data);
-    } catch (error) {
-      console.error("Erro ao enviar dados:", error);
-    } finally {
-      setLoading(false);
+    if (count > 0) {
+      enviarDados();
     }
-  };
+  }, [count]);
 
-  enviarDados();
-}, []);
-
-    return(
-        <div>
-            <p>envio de dados</p>
-        </div>
-
-    )
+  return (
+    <div>
+      <p>Envio de dados</p>
+      <button onClick={() => setCount((c) => c + 1)}>Enviar</button>
+    </div>
+  );
 }
