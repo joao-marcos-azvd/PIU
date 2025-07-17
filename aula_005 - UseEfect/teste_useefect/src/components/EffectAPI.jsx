@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import "./EffectAPI.css"
 
 export default function EffectAPI() {
   const [usuarios, setUsuarios] = useState([]);
@@ -25,14 +26,49 @@ export default function EffectAPI() {
     return <p>Carregando...</p>;
   }
 
+  // Definição da tabela/lista de nomes > names
+  const names = usuarios.map((usuario, index) => ( //Aqui eu digo que vou passar o nome e o index
+    <li key={index}>{usuario.name}</li> // Já aqui é onde eu pego de fato o nome > usuário.nome
+    // O valor tem que ser passado pra lista por meio de um li
+  ))
+
+  // Definição da tabela/lista de usernames
+  const usernames = usuarios.map((usuario, index) => (
+    <li key={index}>{usuario.username}</li>
+  ))
+
+  // Definição da tabela/lista de cidade
+  const cidades = usuarios.map((usuario, index) => (
+    <li key={index}>{usuario.address.city}</li>
+  ))
+
   return (
     <div>
-      <h1>Lista de Usuários</h1>
-      <ul>
+      <h1>Lista de dados dos usuáriosUsuários</h1>
+
+      <div className='names'>
+        <ul>
+          {names}
+        </ul>
+      </div>
+
+      <div className='usernames'>
+        <ul>
+          {usernames}
+        </ul>
+      </div>
+
+      <div className='cidades'>
+        <ul>
+          {cidades}
+        </ul>
+      </div>
+
+      {/* <ul>
         {usuarios.map(usuario => (
           <li key={usuario.id}>{usuario.name}</li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 }

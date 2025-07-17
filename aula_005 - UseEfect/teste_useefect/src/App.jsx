@@ -8,8 +8,8 @@ function App() {
 
   return (
     <>
-      <CountClicks/>
-      {/* <EffectAPI /> */}
+      {/* <CountClicks/> */}
+      <EffectAPI />
       {/* <RepoJson /> */}
       
     </>

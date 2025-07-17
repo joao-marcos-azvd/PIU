@@ -24,10 +24,6 @@ export default function CountClicks() {
       setNome(ranndomNome)
   }
 
-  // function handleCobra() {
-  //   setCobra(cobra + "=")
-  // }
-
 
 
   useEffect(() => {handleColor()}, [count])
