@@ -1,36 +1,44 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function EnviarDados() {
-  const [count, setCount] = useState(0);
+  const [nomeBiblioteca, setNomeBiblioteca] = useState("");
 
-  useEffect(() => {
-    const enviarDados = async () => {
-      const nomeBiblioteca = "biblioteca01"; // nome que será enviado
-
-      try {
-        const response = await fetch(`http://127.0.0.1:8000/bibliotecas?nome=${nomeBiblioteca}`, {
-          method: "POST",
-        });
-
-        if (!response.ok) {
-          throw new Error("Erro ao enviar para a API");
-        }
-
-        console.log("Biblioteca criada com sucesso");
-      } catch (error) {
-        console.error("Erro ao enviar dados:", error);
-      }
-    };
-
-    if (count > 0) {
-      enviarDados();
+  const enviarBiblioteca = async () => {
+    if (!nomeBiblioteca.trim()) {
+      alert("Digite um nome para a biblioteca.");
+      return;
     }
-  }, [count]);
+
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:8000/bibliotecas?nome=${encodeURIComponent(nomeBiblioteca)}`,
+        {
+          method: "POST",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Erro ao enviar para a API");
+      }
+
+      alert("Biblioteca enviada com sucesso!");
+      setNomeBiblioteca(""); // limpa o input
+    } catch (error) {
+      console.error("Erro ao enviar dados:", error);
+      alert("Falha ao enviar biblioteca.");
+    }
+  };
 
   return (
     <div>
-      <p>Envio de dados</p>
-      <button onClick={() => setCount((c) => c + 1)}>Enviar</button>
+      <h2>Cadastrar Biblioteca</h2>
+      <input
+        type="text"
+        placeholder="Nome da biblioteca"
+        value={nomeBiblioteca}
+        onChange={(e) => setNomeBiblioteca(e.target.value)}
+      />
+      <button onClick={enviarBiblioteca}>Enviar</button>
     </div>
   );
 }
