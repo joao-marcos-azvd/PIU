@@ -10,25 +10,29 @@ export default function CountClicks() {
   //useeffect (configurar, dependencias?)
 
   function handleColor(){
-            const cor = ["#FF6B6B", "#6BCB77", "#4D96FF", "#FFD93D", "#835AFD"];
-            const randomColor = cor[Math.floor(Math.random() * cor.length)];
-            document.body.style.backgroundColor = randomColor;
+      const cor = ["#FF6B6B", "#6BCB77", "#4D96FF", "#FFD93D", "#835AFD"];
+      const randomColor = cor[Math.floor(Math.random() * cor.length)];
+      document.body.style.backgroundColor = randomColor;
+  }
 
-    }
+  function handelNome () {
+      const nome = ['Albert Einstein', 'Marie Curie', 'Isaac Newton', 'Galileu Galilei', 'Charles Darwin',
+                    'Nikola Tesla', 'Stephen Hawking', 'Ada Lovelace', 'Alan Turing', 'Niels Bohr',
+                    'Gregor Mendel', 'Rosalind Franklin', 'Louis Pasteur', 'Carl Sagan', 'Rachel Carson',
+                    'Jane Goodall', 'Dmitri Mendeleev', 'Leonardo da Vinci', 'Richard Feynman', 'Tim Berners-Lee']
+      const ranndomNome = nome[Math.floor(Math.random() * nome.length)]
+      setNome(ranndomNome)
+  }
 
-    function handelNome () {
-        const nome = ['Nome 01', 'Nome 02', 'Nome 03', 'Nome 04', 'Nome 05', 'Nome 06', 'Nome 07', 'Nome 08']
-        const ranndomNome = nome[Math.floor(Math.random() * nome.length)]
-        setNome(ranndomNome)
-    }
+  // function handleCobra() {
+  //   setCobra(cobra + "=")
+  // }
 
 
 
-  useEffect(() => {
-    handleColor()
-    handelNome()
-    // setCobra(aux_cobra)
-  },[{count}])
+  useEffect(() => {handleColor()}, [count])
+
+  useEffect(() => {handelNome()}, [cobra])
 
   return (
     <>
@@ -36,6 +40,9 @@ export default function CountClicks() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <button onClick={() => setCobra(cobra + "=")}>
+          Crescer 
+        </button> 
       </div>
       <h1>{nome}</h1>
       <h1>{cobra}</h1>
