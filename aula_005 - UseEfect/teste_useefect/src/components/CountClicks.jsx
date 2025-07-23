@@ -1,3 +1,4 @@
+// Fazer comentários desse código! 
 import { useState, useEffect } from 'react'
 
 export default function CountClicks() {
