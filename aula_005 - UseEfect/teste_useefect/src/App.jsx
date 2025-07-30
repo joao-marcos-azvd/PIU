@@ -3,6 +3,8 @@ import CountClicks from './components/CountClicks'
 import EffectAPI from './components/EffectAPI'
 import RepoJson from './components/RepoJson'
 import EnviarDados from './components/EnviarDados'
+import InputCor from './components/InputCor'
+import TelaLogin from './components/TelaLogin'
 
 
 function App() {
@@ -12,8 +14,9 @@ function App() {
       {/* <CountClicks/> */}
       {/* <EffectAPI /> */}
       {/* <RepoJson /> */}
-      <EnviarDados/>
-      
+      {/* <EnviarDados/> */}
+      {/* <InputCor/> */}
+      <TelaLogin/>
     </>
   )
 }
