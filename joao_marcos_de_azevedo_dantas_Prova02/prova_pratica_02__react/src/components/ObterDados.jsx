@@ -22,7 +22,7 @@ export default function ObterDados() {
     fetchPosts();}, []); // O array vazio garante que o efeito execute apenas uma vez
 
     // const posts_id = posts.filter(post => post.userId === userid)
-    const posts_id = posts.filter(post => post.userId === userid)
+    const posts_id = posts.filter(post => post.userId == userid)
     const posttitle = posts_id.map((post, index) => (
     <li key={index}>{post.title}</li>
   ))
