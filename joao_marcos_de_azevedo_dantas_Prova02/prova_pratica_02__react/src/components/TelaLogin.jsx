@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 export default function TelaLogin() {
     const [tent, setTent] = useState()
-    const [count, setCount] = useState()
+    const [count, setCount] = useState(1)
 
     const handleSubmit = (e) => {
         e.preventDefault(); // Aqui eu travo o processo sempre que a função for chamada.
@@ -35,6 +35,7 @@ export default function TelaLogin() {
                 <button onClick={() => setCount((count) => count + 1)}>Testar</button>
             </form>
             <p>{tent}</p>
+            <p>{count}</p>
         </div>
     )
 }
